@@ -12,7 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+//ciao
 @RestController
 @RequestMapping("/corsi")
 public class CorsoController {

@@ -1,5 +1,6 @@
 package com.example.demo.mapstruct;
 
+import java.util.List;
 import com.example.demo.data.dto.DiscenteDTO;
 import com.example.demo.data.dto.DiscenteDTOLight;
 import com.example.demo.data.entity.Discente;
@@ -10,6 +11,8 @@ public interface DiscenteMapper {
     DiscenteDTO toDto(Discente discente);
     Discente toEntity(DiscenteDTO dto);
 
-    DiscenteDTOLight toDtoLight(Discente discente);
-    Discente toEntityLight(DiscenteDTOLight dto);
+    List<DiscenteDTO> toDtoList(List<Discente> discenti); //aggiunto ora
+
+//    DiscenteDTOLight toDtoLight(Discente discente);
+//    Discente toEntityLight(DiscenteDTOLight dto);
 }

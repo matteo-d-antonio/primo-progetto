@@ -26,10 +26,14 @@ public class DiscenteService {
     DiscenteMapper discenteMapper;
 
     public List<DiscenteDTO> findAll() {
-        return discenteRepository.findAll().stream()
-                .map(discenteMapper::toDto)
-                .collect(Collectors.toList());
+        List<Discente> discenti = discenteRepository.findAll();
+        return discenteMapper.toDtoList(discenti);
     }
+
+//    public List<DiscenteDTO> findAll() {
+//        return discenteRepository.findAll()
+//        .stream().map(discenteMapper::toDto).collect(Collectors.toList());
+//    }
 
     public DiscenteDTO get(Long id) {
         Discente discente = discenteRepository.findById(id).orElseThrow();

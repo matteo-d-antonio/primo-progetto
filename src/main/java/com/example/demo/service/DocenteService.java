@@ -28,6 +28,7 @@ public class DocenteService {
     @Autowired
     DocenteMapper  docenteMapper;
 
+
     public List<DocenteDTO> findAll() {
         return docenteRepository.findAll().stream()
                 .map(docenteMapper::toDto)

@@ -15,11 +15,12 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {DocenteMapper.class, DiscenteMapper.class})
 public interface CorsoMapper {
 
-    @Mapping(target = "id", source = "id")
+
     @Mapping(target = "docenteDTOLight" , source = "docente")
     @Mapping(target = "discentiDTOLight", expression = "java(corso.getDiscenti().stream().map(d -> new com.example.demo.data.dto.DiscenteDTOLight(d.getNome(), d.getCognome())).toList())")
     CorsoDTO corsoToDto(Corso corso);
 
+    @Mapping(target = "id", ignore= true)
     @Mapping(target = "docente", ignore = true)
     @Mapping(target = "discenti", ignore = true)
     Corso corsoToEntity(CorsoDTO corsoDTO);

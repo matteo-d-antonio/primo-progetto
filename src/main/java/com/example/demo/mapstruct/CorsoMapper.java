@@ -15,7 +15,7 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {DocenteMapper.class, DiscenteMapper.class})
 public interface CorsoMapper {
 
-
+    //@Mapping(target = "id", ignore= true)
     @Mapping(target = "docenteDTOLight" , source = "docente")
     @Mapping(target = "discentiDTOLight", expression = "java(corso.getDiscenti().stream().map(d -> new com.example.demo.data.dto.DiscenteDTOLight(d.getNome(), d.getCognome())).toList())")
     CorsoDTO corsoToDto(Corso corso);

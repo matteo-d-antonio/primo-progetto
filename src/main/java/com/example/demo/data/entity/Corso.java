@@ -22,7 +22,7 @@ public class Corso {
     private Integer annoAccademico;
 
     @ManyToOne
-    @JoinColumn(name = "id_docente")
+    @JoinColumn(name = "id_docente",  nullable = true)
     private Docente docente;
 
     @ManyToMany

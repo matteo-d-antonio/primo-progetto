@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/discenti")
+@CrossOrigin(origins = "http://localhost:4200")
 public class DiscenteController {
 
     @Autowired
@@ -46,12 +47,4 @@ public class DiscenteController {
     public List<DiscenteDTO> cerca(@RequestParam String nome) {
         return discenteService.findByName(nome);
     }
-
-
-
-
-
-
-
-
 }

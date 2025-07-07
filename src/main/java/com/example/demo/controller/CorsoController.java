@@ -15,6 +15,7 @@ import java.util.List;
 //ciao
 @RestController
 @RequestMapping("/corsi")
+@CrossOrigin(origins = "http://localhost:4200")
 public class CorsoController {
     @Autowired
     CorsoService corsoService;
@@ -24,6 +25,11 @@ public class CorsoController {
     DiscenteService discenteService;
 
     //lista
+    @GetMapping("/{id}")
+    public CorsoDTO getById(@PathVariable Long id) {
+        return corsoService.get(id);
+    }
+
     @GetMapping("/list")
     public List<CorsoDTO> list() {
         return corsoService.findAll();

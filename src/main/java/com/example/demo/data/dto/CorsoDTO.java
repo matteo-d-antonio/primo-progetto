@@ -8,8 +8,8 @@ import java.util.List;
  @Setter
  @Getter
 public class CorsoDTO {
-
-    private String nome;
+     private Long id;
+     private String nome;
     private Integer annoAccademico;
 
     private DocenteDTOLight docenteDTOLight;

@@ -17,10 +17,10 @@ public interface CorsoMapper {
 
     //@Mapping(target = "id", ignore= true)
     @Mapping(target = "docenteDTOLight" , source = "docente")
-    @Mapping(target = "discentiDTOLight", expression = "java(corso.getDiscenti().stream().map(d -> new com.example.demo.data.dto.DiscenteDTOLight(d.getNome(), d.getCognome())).toList())")
+    @Mapping(target = "discentiDTOLight", expression = "java(corso.getDiscenti() != null ? corso.getDiscenti().stream().map(d -> new com.example.demo.data.dto.DiscenteDTOLight(d.getNome(), d.getCognome())).toList() : new java.util.ArrayList<>())")
     CorsoDTO corsoToDto(Corso corso);
 
-    @Mapping(target = "id", ignore= true)
+    //@Mapping(target = "id", ignore= true)
     @Mapping(target = "docente", ignore = true)
     @Mapping(target = "discenti", ignore = true)
     Corso corsoToEntity(CorsoDTO corsoDTO);

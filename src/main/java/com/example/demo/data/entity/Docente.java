@@ -38,11 +38,11 @@ public class Docente {
     private List<Corso> corsi;
 
 
-    public Docente(Long id, String nome, String cognome) {
+    /*public Docente(Long id, String nome, String cognome) {
         this.id=id;
         this.nome=nome;
         this.cognome=cognome;
-    }
+    }*/
 
     public Docente(String nome, String cognome) {
         this.nome = nome;

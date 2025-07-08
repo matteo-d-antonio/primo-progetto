@@ -97,8 +97,18 @@ public class CorsoService {
     public CorsoDTO save(CorsoDTO c){
         Corso corso = corsoMapper.corsoToEntity(c);
 
-        corso.setDocente(getOrCreateDocente(c.getDocenteDTOLight()));
-        corso.setDiscenti(getOrCreateDiscenti(c.getDiscentiDTOLight()));
+
+            if (c.getDocenteDTOLight() != null) {
+                corso.setDocente(getOrCreateDocente(c.getDocenteDTOLight()));
+            } else {
+                corso.setDocente(null); // necessario se è nullable
+            }
+
+            if (c.getDiscentiDTOLight() != null) {
+                corso.setDiscenti(getOrCreateDiscenti(c.getDiscentiDTOLight()));
+            } else {
+                corso.setDiscenti(null); // opzionale
+            }
 
         Corso savedCorso = corsoRepository.save(corso);
         return corsoMapper.corsoToDto(savedCorso);

@@ -12,7 +12,8 @@ import java.util.List;
 @ToString(exclude = {"docente", "discenti"})
 public class Corso {
 
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
